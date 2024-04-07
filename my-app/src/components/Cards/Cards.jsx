@@ -5,7 +5,7 @@ import styles from "./Cards.module.css";
 import left from "./left.png";
 import right from "./right.png";
 
-const Cards = () => {
+const Cards = ({ setResult }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showTranslation, setShowTranslation] = useState(false);
 
@@ -21,10 +21,11 @@ const Cards = () => {
 
   const handleCheck = () => {
     setShowTranslation(!showTranslation);
+    setResult((result) => result + 1);
   };
 
   return (
-    <div cls>
+    <div>
       <div className={styles.cards}>
         <button className={styles.button} onClick={handlePrev}>
           <img className={styles.img} src={left} alt="назад" />
@@ -42,7 +43,7 @@ const Cards = () => {
       </div>
 
       <div className={styles.index}>
-        <p>
+        <p className={styles.indexText}>
           {currentIndex + 1} / {words.length}
         </p>
       </div>

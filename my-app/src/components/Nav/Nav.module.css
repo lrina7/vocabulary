@@ -8,6 +8,7 @@
 img {
   width: 5em;
   border: 2px solid rgb(139, 97, 43);
+  border-radius: 50%;
 }
 
 h3 {

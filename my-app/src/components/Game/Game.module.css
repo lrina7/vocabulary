@@ -1,4 +1,6 @@
 .game {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   background-color: rgb(251, 242, 228);
 }
@@ -6,5 +8,10 @@
 h2 {
   font-size: 3em;
   margin: 0;
-  padding: 2%;
+  padding: 1%;
+}
+
+.result {
+  font-size: 1.5em;
+  font-weight: bold;
 }
