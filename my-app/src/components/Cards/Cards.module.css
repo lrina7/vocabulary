@@ -1,4 +1,22 @@
 .cards {
   display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid black;
+}
+
+.button {
+  margin: 1em;
+  background-color: rgb(220, 177, 120);
+  border: 1px solid rgb(139, 97, 43);
+  cursor: pointer;
+}
+.button:hover {
+  background-color: rgb(218, 153, 68);
+  border: 1px solid brown;
+}
+
+.img {
+  width: 30px;
+  border: none;
 }

@@ -2,27 +2,42 @@ import React, { useState } from "react";
 import Card from "../Card/Card";
 import words from "../../constants/words";
 import styles from "./Cards.module.css";
+import left from "./left.png";
+import right from "./right.png";
 
 const Cards = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showTranslation, setShowTranslation] = useState(false);
 
   const handleNext = () => {
     setCurrentIndex(currentIndex === words.length - 1 ? 0 : currentIndex + 1);
+    setShowTranslation(false);
   };
 
   const handlePrev = () => {
     setCurrentIndex(currentIndex === 0 ? words.length - 1 : currentIndex - 1);
+    setShowTranslation(false);
+  };
+
+  const handleCheck = () => {
+    setShowTranslation(!showTranslation);
   };
 
   return (
     <div className={styles.cards}>
-      <button onClick={handlePrev}>Prev</button>
+      <button className={styles.button} onClick={handlePrev}>
+        <img className={styles.img} src={left} alt="назад" />
+      </button>
       <Card
         img={currentIndex + 1}
         russian={words[currentIndex].russian}
-        onCheck={() => alert("Показать перевод")}
+        english={words[currentIndex].english}
+        showTranslation={showTranslation}
+        onCheck={handleCheck}
       />
-      <button onClick={handleNext}>Next</button>
+      <button className={styles.button} onClick={handleNext}>
+        <img className={styles.img} src={right} alt="вперёд" />
+      </button>
     </div>
   );
 };

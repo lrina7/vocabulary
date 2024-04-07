@@ -24,6 +24,11 @@
   font-weight: bold;
   padding: 0.5em;
   margin-bottom: 1em;
+  cursor: pointer;
   background-color: rgb(220, 177, 120);
   border: 1px solid rgb(139, 97, 43);
+}
+.button:hover {
+  background-color: rgb(218, 153, 68);
+  border: 1px solid brown;
 }
