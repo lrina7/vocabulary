@@ -1,0 +1,21 @@
+.image {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  margin: em;
+  border: 2px solid rgb(139, 97, 43);
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: blanchedalmond;
+}
+
+h1 {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  font-size: 4em;
+  color: rgb(139, 97, 43);
+}

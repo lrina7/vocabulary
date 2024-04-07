@@ -1,0 +1,11 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: blanchedalmond;
+}
+
+img {
+  width: 5em;
+  border: 2px solid rgb(139, 97, 43);
+}
