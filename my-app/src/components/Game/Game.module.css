@@ -1,0 +1,10 @@
+.game {
+  margin: 0;
+  background-color: rgb(251, 242, 228);
+}
+
+h2 {
+  font-size: 3em;
+  margin: 0;
+  padding: 2%;
+}

@@ -24,20 +24,28 @@ const Cards = () => {
   };
 
   return (
-    <div className={styles.cards}>
-      <button className={styles.button} onClick={handlePrev}>
-        <img className={styles.img} src={left} alt="назад" />
-      </button>
-      <Card
-        img={currentIndex + 1}
-        russian={words[currentIndex].russian}
-        english={words[currentIndex].english}
-        showTranslation={showTranslation}
-        onCheck={handleCheck}
-      />
-      <button className={styles.button} onClick={handleNext}>
-        <img className={styles.img} src={right} alt="вперёд" />
-      </button>
+    <div cls>
+      <div className={styles.cards}>
+        <button className={styles.button} onClick={handlePrev}>
+          <img className={styles.img} src={left} alt="назад" />
+        </button>
+        <Card
+          img={currentIndex + 1}
+          russian={words[currentIndex].russian}
+          english={words[currentIndex].english}
+          showTranslation={showTranslation}
+          onCheck={handleCheck}
+        />
+        <button className={styles.button} onClick={handleNext}>
+          <img className={styles.img} src={right} alt="вперёд" />
+        </button>
+      </div>
+
+      <div className={styles.index}>
+        <p>
+          {currentIndex + 1} / {words.length}
+        </p>
+      </div>
     </div>
   );
 };

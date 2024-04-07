@@ -9,11 +9,6 @@ export default function Card({
   showTranslation,
 }) {
   const imagePath = require(`../../constants/${img}.jpg`);
-  //const [showTranslation, setShowTranslation] = useState(false);
-
-  //const handleShowTranslation = () => {
-  // setShowTranslation(!showTranslation);
-  //};
 
   return (
     <div className={styles.card}>
