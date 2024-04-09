@@ -7,7 +7,7 @@ export default function Game() {
 
   return (
     <div className={styles.game}>
-      <h2>Game</h2>
+      <h2>Игра-тренажёр</h2>
       <Cards setResult={setResult} />
       <p className={styles.result}>Сегодня изучено: {result} слов</p>
     </div>
