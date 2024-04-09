@@ -11,6 +11,9 @@ img {
   border-radius: 50%;
 }
 
-h3 {
+.link {
   font-size: 2em;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+  color: rgb(113, 77, 31);
 }

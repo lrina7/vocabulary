@@ -8,9 +8,15 @@ export default function Nav() {
   return (
     <div className={styles.nav}>
       <img src={harrie} alt="Harrie" />
-      <Link to="/">игра-тренажёр</Link>
-      <Link to="/table">словарик</Link>
-      <Link to="/more">ещё</Link>
+      <Link className={styles.link} to="/">
+        тренажёр
+      </Link>
+      <Link className={styles.link} to="/table">
+        словарик
+      </Link>
+      <Link className={styles.link} to="/more">
+        ещё
+      </Link>
       <img src={germiona} alt="Germiona" />
     </div>
   );
