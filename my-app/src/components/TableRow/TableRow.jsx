@@ -41,7 +41,7 @@ export default function TableRow({ rowData }) {
         <input
           type="text"
           value={value.english}
-          name={english}
+          name={"english"}
           onChange={handleChange}
         />
       </td>
@@ -50,7 +50,7 @@ export default function TableRow({ rowData }) {
         <input
           type="text"
           value={value.transcription}
-          name={transcription}
+          name={"transcription"}
           onChange={handleChange}
         />
       </td>
@@ -59,7 +59,7 @@ export default function TableRow({ rowData }) {
         <input
           type="text"
           value={value.russian}
-          name={russian}
+          name={"russian"}
           onChange={handleChange}
         />
       </td>
