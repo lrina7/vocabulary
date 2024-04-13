@@ -1,0 +1,15 @@
+.table_container {
+  background-color: rgb(219, 215, 220);
+}
+
+.table {
+  width: 80%;
+  margin: 0 auto;
+  background-color: rgb(250, 232, 210);
+  border: 1px solid black;
+}
+
+.table_head {
+  font-size: 1.5em;
+  background-color: bisque;
+}

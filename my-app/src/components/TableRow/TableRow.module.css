@@ -1,0 +1,37 @@
+.row {
+  font-size: 1.5em;
+  background-color: white;
+  color: black;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 0.7em;
+}
+
+button:hover {
+  background-color: white;
+  border: 1px solid red;
+  font-weight: bold;
+}
+
+.buttonEdit {
+  background-color: rgb(180, 247, 79);
+}
+.buttonDelete {
+  background-color: rgb(248, 166, 72);
+}
+
+.buttonSave {
+  background-color: rgb(249, 86, 74);
+}
+
+.buttonClose {
+  background-color: rgb(180, 247, 79);
+}
