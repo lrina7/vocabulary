@@ -11,14 +11,32 @@ export default function TableRow({ rowData }) {
     russian: russian,
   });
 
+  const [errors, setErrors] = useState({
+    english: false,
+    transcription: false,
+    russian: false,
+  });
+
   function handleClose() {
     setIsSelected(!isSelected);
     setValue({ ...rowData });
   }
 
   function handleSave() {
-    setValue({ ...value });
-    setIsSelected(!isSelected);
+    const newErrors = {
+      english: !/^[\p{Script=Latin}\s]+$/u.test(value.english)
+        ? "Используйте только английские буквы!"
+        : false,
+      russian: !/^[\p{Script=Cyrillic}\s]+$/u.test(value.russian)
+        ? "Используйте только русские буквы!"
+        : false,
+    };
+    const hasErrors = Object.values(newErrors).some((error) => error !== false);
+    if (!hasErrors) {
+      setValue({ ...value });
+      setIsSelected(false);
+    }
+    setErrors(newErrors);
   }
 
   function handleEdit() {
@@ -29,7 +47,17 @@ export default function TableRow({ rowData }) {
     setValue((prevValue) => {
       return { ...prevValue, [event.target.name]: event.target.value };
     });
+
+    setErrors({
+      ...errors,
+      [event.target.name]:
+        event.target.value.trim() === ""
+          ? "Поля должны быть заполнены!"
+          : false,
+    });
   }
+
+  const isBtndesabled = Object.values(errors).some((elem) => elem);
 
   return isSelected ? (
     <tr className={styles.row}>
@@ -43,7 +71,9 @@ export default function TableRow({ rowData }) {
           value={value.english}
           name={"english"}
           onChange={handleChange}
+          className={errors.english ? styles.error_border : ""}
         />
+        <p>{errors.english}</p>
       </td>
 
       <td>
@@ -52,7 +82,9 @@ export default function TableRow({ rowData }) {
           value={value.transcription}
           name={"transcription"}
           onChange={handleChange}
+          className={errors.transcription ? styles.error_border : ""}
         />
+        <p>{errors.transcription}</p>
       </td>
 
       <td>
@@ -61,9 +93,15 @@ export default function TableRow({ rowData }) {
           value={value.russian}
           name={"russian"}
           onChange={handleChange}
+          className={errors.russian ? styles.error_border : ""}
         />
+        <p>{errors.russian}</p>
       </td>
-      <button onClick={handleSave} className={styles.buttonSave}>
+      <button
+        onClick={handleSave}
+        className={styles.buttonSave}
+        disabled={isBtndesabled}
+      >
         Save
       </button>
       <button onClick={handleClose} className={styles.buttonClose}>

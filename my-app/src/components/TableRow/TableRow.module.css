@@ -4,6 +4,11 @@
   color: black;
 }
 
+.row td,
+.row th {
+  border: 1px solid #ddd;
+}
+
 .button {
   display: flex;
   justify-content: center;
@@ -34,4 +39,14 @@ button:hover {
 
 .buttonClose {
   background-color: rgb(180, 247, 79);
+}
+
+.error_border {
+  border: 2px solid red;
+}
+
+p {
+  font-size: 12px;
+  font-weight: bold;
+  color: red;
 }

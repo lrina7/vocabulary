@@ -15,7 +15,7 @@
 .text {
   font-family: "Courier New", Courier, monospace;
   font-size: 2.5em;
-
+  color: black;
   font-weight: bold;
   margin: 0.5em;
 }
