@@ -1,8 +1,11 @@
 import TableRow from "../TableRow/TableRow";
-import words from "../../constants/words.js";
+//import words from "../../constants/words.js";
+import React, { useState, useContext } from "react";
+import { WordsContext } from "../WordsContext/WordsContext";
 import styles from "./Table.module.css";
 
 export default function Table() {
+  const { words, setWords } = useContext(WordsContext);
   return (
     <div className={styles.table_container}>
       <h2>мой словарик</h2>

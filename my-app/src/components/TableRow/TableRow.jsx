@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { WordsContext } from "../WordsContext/WordsContext";
 import styles from "./TableRow.module.css";
 
 export default function TableRow({ rowData }) {
+  const { handleSave } = useContext(WordsContext);
   const { id, english, transcription, russian } = rowData;
   const [isSelected, setIsSelected] = useState(false);
   const [value, setValue] = useState({
     id: id,
-    english: english,
-    transcription: transcription,
-    russian: russian,
+    english,
+    transcription,
+    russian,
   });
 
   const [errors, setErrors] = useState({
@@ -22,7 +24,7 @@ export default function TableRow({ rowData }) {
     setValue({ ...rowData });
   }
 
-  function handleSave() {
+  function handleSaveWord() {
     const newErrors = {
       english: !/^[\p{Script=Latin}\s]+$/u.test(value.english)
         ? "Используйте только английские буквы!"
@@ -33,6 +35,7 @@ export default function TableRow({ rowData }) {
     };
     const hasErrors = Object.values(newErrors).some((error) => error !== false);
     if (!hasErrors) {
+      handleSave(value, value.id);
       setValue({ ...value });
       setIsSelected(false);
     }
@@ -98,7 +101,7 @@ export default function TableRow({ rowData }) {
         <p>{errors.russian}</p>
       </td>
       <button
-        onClick={handleSave}
+        onClick={handleSaveWord}
         className={styles.buttonSave}
         disabled={isBtndesabled}
       >
