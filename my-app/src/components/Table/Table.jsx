@@ -1,5 +1,4 @@
 import TableRow from "../TableRow/TableRow";
-//import words from "../../constants/words.js";
 import React, { useState, useContext } from "react";
 import { WordsContext } from "../WordsContext/WordsContext";
 import styles from "./Table.module.css";

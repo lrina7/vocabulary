@@ -3,6 +3,7 @@ import { WordsContext } from "../WordsContext/WordsContext";
 import styles from "./TableRow.module.css";
 
 export default function TableRow({ rowData }) {
+  const { words, setWords } = useContext(WordsContext);
   const { handleSave } = useContext(WordsContext);
   const { id, english, transcription, russian } = rowData;
   const [isSelected, setIsSelected] = useState(false);
@@ -59,6 +60,24 @@ export default function TableRow({ rowData }) {
           : false,
     });
   }
+
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch(
+        ` http://itgirlschool.justmakeit.ru/api/words/${id}/delete`,
+        {
+          method: "POST",
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Failed to delete word");
+      }
+      console.log("delete id", id);
+      setWords(words.filter((task) => task.id !== id));
+    } catch (error) {
+      console.error("Error deleting task:", error);
+    }
+  };
 
   const isBtndesabled = Object.values(errors).some((elem) => elem);
 
@@ -122,7 +141,9 @@ export default function TableRow({ rowData }) {
           <button onClick={handleEdit} className={styles.buttonEdit}>
             Edit
           </button>
-          <button className={styles.buttonDelete}>Delete</button>
+          <button onClick={handleDelete} className={styles.buttonDelete}>
+            Delete
+          </button>
         </td>
       </td>
     </tr>

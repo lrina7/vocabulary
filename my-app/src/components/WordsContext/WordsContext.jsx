@@ -38,8 +38,8 @@ const WordsProvider = ({ children }) => {
             english: value.english,
             transcription: value.transcription,
             russion: value.russion,
-            tags: [],
-            tags_json: [],
+            tags: "",
+            tags_json: "",
           }),
         }
       );
