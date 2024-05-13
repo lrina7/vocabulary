@@ -6,7 +6,6 @@ import Table from "./components/Table/Table";
 import Footer from "./components/Footer/Footer";
 import Mistakes from "./components/Mistakes/Mistakes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React from "react";
 import { WordsProvider } from "./components/WordsContext/WordsContext";
 
 function App() {

@@ -3,8 +3,8 @@ import { WordsContext } from "../WordsContext/WordsContext";
 import styles from "./TableRow.module.css";
 
 export default function TableRow({ rowData }) {
-  const { words, setWords } = useContext(WordsContext);
-  const { handleSave } = useContext(WordsContext);
+  const { updateWord, deleteWord } = useContext(WordsContext);
+
   const { id, english, transcription, russian } = rowData;
   const [isSelected, setIsSelected] = useState(false);
   const [value, setValue] = useState({
@@ -25,7 +25,7 @@ export default function TableRow({ rowData }) {
     setValue({ ...rowData });
   }
 
-  function handleSaveWord() {
+  function handleSave() {
     const newErrors = {
       english: !/^[\p{Script=Latin}\s]+$/u.test(value.english)
         ? "Используйте только английские буквы!"
@@ -35,12 +35,17 @@ export default function TableRow({ rowData }) {
         : false,
     };
     const hasErrors = Object.values(newErrors).some((error) => error !== false);
+
     if (!hasErrors) {
-      handleSave(value, value.id);
-      setValue({ ...value });
+      updateWord(value.id, value);
+
       setIsSelected(false);
     }
     setErrors(newErrors);
+  }
+
+  function handleDelete() {
+    deleteWord(value.id);
   }
 
   function handleEdit() {
@@ -60,24 +65,6 @@ export default function TableRow({ rowData }) {
           : false,
     });
   }
-
-  const handleDelete = async (id) => {
-    try {
-      const response = await fetch(
-        ` http://itgirlschool.justmakeit.ru/api/words/${id}/delete`,
-        {
-          method: "POST",
-        }
-      );
-      if (!response.ok) {
-        throw new Error("Failed to delete word");
-      }
-      console.log("delete id", id);
-      setWords(words.filter((task) => task.id !== id));
-    } catch (error) {
-      console.error("Error deleting task:", error);
-    }
-  };
 
   const isBtndesabled = Object.values(errors).some((elem) => elem);
 
@@ -120,7 +107,7 @@ export default function TableRow({ rowData }) {
         <p>{errors.russian}</p>
       </td>
       <button
-        onClick={handleSaveWord}
+        onClick={handleSave}
         className={styles.buttonSave}
         disabled={isBtndesabled}
       >
