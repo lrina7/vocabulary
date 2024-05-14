@@ -10,16 +10,16 @@ export default function Table() {
   return (
     <div>
       {loading ? (
-        <div id="floatingBarsG" className={styles.spinner}>
+        <div id={styles.floatingBarsG}>
           Loading...
-          <div className={styles.blockG} id="rotateG_01"></div>
-          <div className={styles.blockG} id="rotateG_02"></div>
-          <div className={styles.blockG} id="rotateG_03"></div>
-          <div className={styles.blockG} id="rotateG_04"></div>
-          <div className={styles.blockG} id="rotateG_05"></div>
-          <div className={styles.blockG} id="rotateG_06"></div>
-          <div className={styles.blockG} id="rotateG_07"></div>
-          <div className={styles.blockG} id="rotateG_08"></div>
+          <div className={styles.blockG} id={styles.rotateG_01}></div>
+          <div className={styles.blockG} id={styles.rotateG_02}></div>
+          <div className={styles.blockG} id={styles.rotateG_03}></div>
+          <div className={styles.blockG} id={styles.rotateG_04}></div>
+          <div className={styles.blockG} id={styles.rotateG_05}></div>
+          <div className={styles.blockG} id={styles.rotateG_06}></div>
+          <div className={styles.blockG} id={styles.rotateG_07}></div>
+          <div className={styles.blockG} id={styles.rotateG_08}></div>
         </div>
       ) : (
         <div className={styles.table_container}>
