@@ -11,7 +11,6 @@ export default function Table() {
     <div>
       {loading ? (
         <div id={styles.floatingBarsG}>
-          Loading...
           <div className={styles.blockG} id={styles.rotateG_01}></div>
           <div className={styles.blockG} id={styles.rotateG_02}></div>
           <div className={styles.blockG} id={styles.rotateG_03}></div>
